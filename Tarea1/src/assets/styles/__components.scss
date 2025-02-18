@@ -1,0 +1,84 @@
+@import "__vars";
+@import "__mixins";
+
+#profile {
+    text-align: center;
+    display: block;
+}
+
+#picture {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 15px;
+}
+
+i {
+    width: 30px;
+    height: 30px;
+}
+
+#content {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 100vh;
+}
+
+.right {
+    width: calc(40% - 10px);
+    margin-right: 10px;
+}
+
+.right h2 {
+    text-align: center;
+}
+
+.left {
+    width: calc(40% - 10px);
+    padding-left: 10px;
+}
+
+.left h2 {
+    text-align: center;
+}
+
+#skills-images {
+    display: none;
+}
+
+@include responsive(1000px) {
+    #content {
+        flex-direction: column;
+    }
+
+    .right, .left {
+        width: 100%;
+    }
+}
+
+@include responsive(600px) {
+    #content {
+        flex-direction: column;
+    }
+
+    #skills-letters {
+        display: none;
+    }
+
+    #skills-images {
+        display: block;
+    }
+
+    #skills-images img {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+
+    .right, .left {
+        width: 100%;
+    }
+}
