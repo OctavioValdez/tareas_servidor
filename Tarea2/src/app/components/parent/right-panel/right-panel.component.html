@@ -1,0 +1,7 @@
+<div class="details">
+  <p *ngIf="!selectedItem">No hay ningún elemento seleccionado</p>
+  <div *ngIf="selectedItem">
+    <h3>{{ selectedItem }}</h3>
+    <button (click)="clear()">Limpiar</button>
+  </div>
+</div>

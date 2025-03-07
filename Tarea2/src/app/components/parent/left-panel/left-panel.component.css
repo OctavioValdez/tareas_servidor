@@ -1,0 +1,16 @@
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  li.selected {
+    background-color: lightblue;
+    font-weight: bold;
+  }
+  

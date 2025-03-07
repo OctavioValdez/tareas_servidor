@@ -1,0 +1,14 @@
+<div class="container">
+  <app-left-panel
+    [items]="items"
+    [selectedItem]="selectedItem"
+    (itemSelected)="selectItem($event)"
+  >
+  </app-left-panel>
+
+  <app-right-panel
+    [selectedItem]="selectedItem"
+    (clearSelection)="clearSelection()"
+  >
+  </app-right-panel>
+</div>
