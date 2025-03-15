@@ -1,0 +1,52 @@
+<div class="container" *ngIf="noticia">
+  <div class="navigation">
+    <button class="nav-button" (click)="volverAResultados()">
+      ← Volver a resultados
+    </button>
+    <button class="nav-button" (click)="volverAInicio()">Inicio</button>
+  </div>
+
+  <article class="noticia-detalle">
+    <h1 class="titulo">{{ noticia?.title }}</h1>
+
+    <div class="meta-info">
+      <div *ngIf="noticia.author" class="autor">
+        Por: <strong>{{ noticia?.author }}</strong>
+      </div>
+      <div *ngIf="noticia.publishedAt" class="fecha">
+        {{ formatearFecha(noticia?.publishedAt || "") }}
+      </div>
+    </div>
+
+    <div class="imagen-container" *ngIf="noticia.urlToImage">
+      <img
+        [src]="noticia?.urlToImage"
+        [alt]="noticia?.title"
+        class="noticia-imagen"
+      />
+    </div>
+
+    <div class="descripcion">
+      {{ noticia?.description }}
+    </div>
+
+    <div class="contenido">
+      {{ noticia?.content }}
+    </div>
+
+    <div class="acciones">
+      <button class="boton-visitar" (click)="visitarNoticia()">
+        Ver noticia completa
+      </button>
+    </div>
+  </article>
+</div>
+
+<div class="container error-container" *ngIf="error">
+  <div class="error-message">
+    <p>{{ error }}</p>
+    <button class="nav-button" (click)="volverAInicio()">
+      Volver al inicio
+    </button>
+  </div>
+</div>

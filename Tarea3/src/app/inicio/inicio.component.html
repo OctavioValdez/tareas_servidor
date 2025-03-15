@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Buscador de Noticias</h1>
+
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="busqueda"
+      placeholder="Buscar noticias..."
+      (keydown)="onKeydown($event)"
+      class="search-input"
+    />
+    <button (click)="buscar()" class="search-button">Buscar</button>
+  </div>
+</div>

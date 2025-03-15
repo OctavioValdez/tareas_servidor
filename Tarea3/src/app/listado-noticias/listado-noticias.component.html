@@ -1,0 +1,50 @@
+<div class="container">
+  <header class="header">
+    <div class="logo" (click)="volverAInicio()">Buscador de Noticias</div>
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="nuevaBusqueda"
+        placeholder="Nueva búsqueda..."
+        (keydown)="onKeydown($event)"
+      />
+      <button (click)="buscar()">Buscar</button>
+    </div>
+  </header>
+
+  <div class="search-info">
+    <p>
+      Resultados para: <strong>{{ terminoBusqueda }}</strong>
+    </p>
+  </div>
+
+  <div *ngIf="cargando" class="loading">
+    <p>Cargando resultados...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="noticias-listado">
+    <div *ngFor="let noticia of noticias" class="noticia-item">
+      <h2 class="noticia-titulo" (click)="verNoticia(noticia)">
+        {{ noticia.title }}
+      </h2>
+      <p class="noticia-autor" *ngIf="noticia.author">
+        Por: {{ noticia.author }}
+      </p>
+      <p class="noticia-descripcion">{{ noticia.description }}</p>
+      <div class="noticia-fecha" *ngIf="noticia.publishedAt">
+        {{ noticia.publishedAt | date : "dd/MM/yyyy HH:mm" }}
+      </div>
+    </div>
+
+    <div
+      *ngIf="noticias.length === 0 && !cargando && !error"
+      class="no-resultados"
+    >
+      <p>No se encontraron resultados para tu búsqueda.</p>
+    </div>
+  </div>
+</div>
